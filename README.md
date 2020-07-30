@@ -11,7 +11,7 @@ This is how I have it set up on my bar, it updates every 30 minutes. I set it to
 ``` 
 [module/oweatherbar]
 type = custom/script
-exec = /home/lump/sources/oweatherbar/oweatherbar.sh
+exec = /path/to/oweatherbar.sh
 format = <label>°F
 foreground-color = ${color.foreground}
 interval = 1800
@@ -19,5 +19,7 @@ click-left = "exec polybar-msg cmd restart"
 click-right = "exec $BROWSER https://www.wunderground.com/weather/(my location)"
 ``` 
 Note that the script doesn't display the degrees symbol or F/C; since people like displaying things differently I didn't want to cramp anyone's style. 
+
+It requires a small conf file (wbar.conf) to be placed in your polybar config folder. If you don't like this, it's trivial enough to change the location in the script. 
 
 Also the icons are nice and notated so if you use something other than Font Awesome Free you can modify the script pretty easily. Enjoy! 
