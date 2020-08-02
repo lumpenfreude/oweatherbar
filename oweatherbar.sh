@@ -2,7 +2,7 @@
 #ping google to see if we're online so the bar doesn't fill with garbage if it can't find OWM
 if ping -q -c 1 -W 1 google.com >/dev/null; then
     #read the conf file for the needed info
-    read a b c <<< $(tr '\n' ' ' <$HOME/.config/polybar/wbar.conf)
+    read a b c <<< $(tr '\n' ' ' <$HOME/.config/wbar.conf)
     #get current weather info from OWM, use jq to strip it down to main temp and the icon id, then strip linebreaks and quotes from it
     read d e <<< $(curl -s "https://api.openweathermap.org/data/2.5/weather?q=$a&appid=$b&units=$c" | jq -r '.main.temp, .weather[].icon' | tr '\n' ' ' | sed "s/\"//g")
     #round the current temp to an integer
