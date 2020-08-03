@@ -7,6 +7,7 @@ Simple Bash script to scraped info from OpenWeatherMaps, parse it with JQ, and t
 # Dependencies
 
 `jq` to clean up the JSON 
+
 `Font Awesome 5 Free` icons (though it may work natively with some other icon packs, and can be easily edited to work with others)
 
 ![](/pic2.png)
