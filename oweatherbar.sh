@@ -1,6 +1,6 @@
 #!/bin/bash
 #ping google to see if we're online so the bar doesn't fill with garbage if it can't find OWM
-if ping -q -c 1 -W 1 google.com >/dev/null; then
+if ping -q -c 1 -W 1 google.com &> /dev/null; then
     #read the conf file for the needed info
     read a b c <<< $(tr '\n' ' ' <$HOME/.config/wbar.conf)
     #get current weather info from OWM, use jq to strip it down to main temp and the icon id, then strip linebreaks and quotes from it
@@ -25,8 +25,12 @@ if ping -q -c 1 -W 1 google.com >/dev/null; then
         i="" #rain day
     elif [[ $e == 10n ]]; then
         i="" #rain night
+    elif [[ $e == "10d 11d" ]]; then
+        i="" #thunderstorm day
+    elif [[ $e == "10n 11n" ]]; then
+        i="" #thunderstorm night
     elif [[ $e == 11* ]]; then
-        i="" #thunderstorm day/night
+        i="" #thunderstorm generic
     elif [[ $e == 13* ]]; then
         i="" #snow day/night
     elif [[ $e == 50* ]]; then
