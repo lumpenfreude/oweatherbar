@@ -8,6 +8,8 @@ Simple Bash script to scraped info from OpenWeatherMaps, parse it with JQ, and t
 
 `jq` to clean up the JSON 
 
+![](/pic2.png)
+
 # Installation & Module
 
 Just put it wherever you want and put it in your bar! 
